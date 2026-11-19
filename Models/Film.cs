@@ -10,20 +10,24 @@ namespace UKWShop.Models
         public int Id { get; set; }
         //public string FilmId { get; set; }
 
-        [Required(ErrorMessage = "The title is required.")]
+        [Required(ErrorMessage = "Tytuł jest wymagany.")]
 
-        [StringLength(100, ErrorMessage = "The title cannot exceed 100 characters.")]
+        [StringLength(100, ErrorMessage = "Tytuł nie może przekraczać 100 znaków.")]
         public string Title { get; set; }
         public string Director { get; set; }
-        public string Description { get; set; }
+
+        [StringLength(5000)]
+        public string Desc { get; set; }
+
         public decimal Price { get; set; }
-        public DateTime ReleaseDate { get; set; }
+        public DateTime DateAdded { get; set; }
 
         //nazwa klasy dołączanej + nazwa PK
         //[ForeignKey("Category")]
         public int CategoryId { get; set; }
 
         //nazwa  klasy dołączanej + Id
+        public Category Category { get; set; }
 
     }
 }
