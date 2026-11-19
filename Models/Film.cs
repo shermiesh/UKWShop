@@ -6,12 +6,12 @@ namespace UKWShop.Models
     public class Film
     {
 
-        //public int Id { get; set; }
+
+        public int Id { get; set; }
         //public string FilmId { get; set; }
 
-        [Key]
-
         [Required(ErrorMessage = "The title is required.")]
+
         [StringLength(100, ErrorMessage = "The title cannot exceed 100 characters.")]
         public string Title { get; set; }
         public string Director { get; set; }
