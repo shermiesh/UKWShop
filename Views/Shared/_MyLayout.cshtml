@@ -101,52 +101,5 @@
         <p class="mb-0">&copy; 2026 MyShop – Wszystkie prawa zastrzeżone</p>
     </footer>
 
-    <!-- JavaScript -->
-    <script>
-        // Filtrowanie produktów według kategorii
-        const categoryLinks = document.querySelectorAll(
-            '.category-nav .nav-link'
-        );
-
-        const products = document.querySelectorAll('.product');
-
-        categoryLinks.forEach(link => {
-            link.addEventListener('click', function(event) {
-                event.preventDefault();
-
-                const category = this.dataset.category;
-
-                // Zmiana aktywnej kategorii
-                categoryLinks.forEach(item =>
-                    item.classList.remove('active')
-                );
-
-                this.classList.add('active');
-
-                // Filtrowanie kart
-                products.forEach(product => {
-                    if (category === 'all' ||
-                        product.dataset.category === category) {
-                        product.style.display = '';
-                    } else {
-                        product.style.display = 'none';
-                    }
-                });
-            });
-        });
-
-        // Prosty licznik koszyka
-        let cartCount = 0;
-
-        document.querySelectorAll('.add-to-cart').forEach(button => {
-            button.addEventListener('click', function() {
-                cartCount++;
-
-                document.getElementById('cart-count').textContent =
-                    cartCount;
-            });
-        });
-    </script>
-
 </body>
 </html>
